@@ -17,7 +17,7 @@ class NewLogin extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children:  [
             const SizedBox(height: 80,),
-            const Padding(padding: EdgeInsets.all(20),
+            const Padding(padding: EdgeInsets.all(1),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -25,20 +25,21 @@ class NewLogin extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 10,),
             Expanded(child: Container(
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))
               ),
               child: const Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(15),
                 child: Column(
                   children: [
-                    SizedBox(height: 60,),
+                    SizedBox(height: 50,),
                     LoginForm()
                   ],
                 ),
+
               ),
             ),
             )

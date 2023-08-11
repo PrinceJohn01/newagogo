@@ -15,7 +15,6 @@ class LoginScreen extends StatelessWidget {
                 desktop: Row(children: [
                   Expanded(
                     child: Container(
-                      width: double.infinity,
                       decoration: const BoxDecoration(
                         color: Color(0xFFEDEDFF),
                       ),
@@ -23,17 +22,17 @@ class LoginScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const SizedBox(
-                            height: 80,
+                            height: 50,
                           ),
                           const Padding(
-                            padding: EdgeInsets.all(20),
+                            padding: EdgeInsets.all(10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [LoginScreenTopImage()],
                             ),
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
                           Expanded(
                             child: Container(
@@ -77,41 +76,35 @@ class MobileLoginScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Color(0xFFEDEDFF),
         ),
-        child: Column(
+        child:  Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 80,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(20),
+          children:  [
+            const SizedBox(height: 80,),
+            const Padding(padding: EdgeInsets.all(1),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [LoginScreenTopImage()],
+                children: [
+                  LoginScreenTopImage()
+                ],
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(40),
-                        topRight: Radius.circular(40))),
-                child: const Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 60,
-                      ),
-                      LoginForm()
-                    ],
-                  ),
+            const SizedBox(height: 10,),
+            Expanded(child: Container(
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    SizedBox(height: 50,),
+                    LoginForm()
+                  ],
                 ),
+
               ),
+            ),
             )
           ],
         ),

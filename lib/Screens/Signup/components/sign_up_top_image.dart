@@ -20,14 +20,7 @@ class SignUpScreenTopImage extends StatelessWidget {
             const Spacer(),
           ],
         ),
-        const Text(
-          "Signup to AgoGo",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-         const SizedBox(height: defaultPadding * 2),
-
-               const SizedBox(height: defaultPadding * 2),
-      ],
+       ],
     );
   }
 }

@@ -32,15 +32,21 @@ class _SignUpFormState extends State<SignUpForm> {
             Text("Email",style: TextStyle(
                 color: Colors.black,
                 fontSize: 16))),
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            cursorColor: kPrimaryColor,
-            onSaved: (email) {},
-            decoration: const InputDecoration(
-              hintText: "Email",
-              prefixIcon: Padding(
-                padding: EdgeInsets.all(defaultPadding),
+          Container(
+            padding: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                borderRadius: BorderRadius.circular(8)),
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+              cursorColor: kPrimaryColor,
+              onSaved: (email) {},
+              decoration: const InputDecoration(
+                hintText: "Email",
+                prefixIcon: Padding(
+                  padding: EdgeInsets.all(defaultPadding),
+                ),
               ),
             ),
           ),
@@ -51,24 +57,30 @@ class _SignUpFormState extends State<SignUpForm> {
         Text('Password', style: TextStyle(
             color: Colors.black,
             fontSize: 16))),
-              TextFormField(
-              textInputAction: TextInputAction.done,
-              obscureText: _obscurePassword,
-              cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
-                labelText: "Password",
-                hintText: "Password",
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
+              Container(
+                padding: const EdgeInsets.all(1),
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(8)),
+                child: TextFormField(
+                textInputAction: TextInputAction.done,
+                obscureText: _obscurePassword,
+                cursorColor: kPrimaryColor,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  hintText: "Password",
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                    ),
+                    onPressed: _togglePasswordVisibility,
                   ),
-                  onPressed: _togglePasswordVisibility,
+                  prefixIcon: const Padding(
+                    padding: EdgeInsets.all(defaultPadding),
+                  ),
                 ),
-                prefixIcon: const Padding(
-                  padding: EdgeInsets.all(defaultPadding),
-                ),
-              ),
           ),
+              ),
       const SizedBox(height: defaultPadding),
       const Align(
         alignment: Alignment.centerLeft,
@@ -76,20 +88,26 @@ class _SignUpFormState extends State<SignUpForm> {
         Text('Confirm password', style: TextStyle(
             color: Colors.black,
             fontSize: 16))),
-            TextFormField(
-              textInputAction: TextInputAction.done,
-              obscureText: _obscurePassword,
-              cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
-                hintText: "Password",
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
+            Container(
+              padding: const EdgeInsets.all(1),
+              decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(8)),
+              child: TextFormField(
+                textInputAction: TextInputAction.done,
+                obscureText: _obscurePassword,
+                cursorColor: kPrimaryColor,
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                    ),
+                    onPressed: _togglePasswordVisibility,
                   ),
-                  onPressed: _togglePasswordVisibility,
-                ),
-                prefixIcon: const Padding(
-                  padding: EdgeInsets.all(defaultPadding),
+                  prefixIcon: const Padding(
+                    padding: EdgeInsets.all(defaultPadding),
+                  ),
                 ),
               ),
             ),

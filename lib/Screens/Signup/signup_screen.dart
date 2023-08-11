@@ -45,21 +45,45 @@ class MobileSignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        SignUpScreenTopImage(),
-        Row(
-          children: [
-            Spacer(),
-            Expanded(
-              flex: 8,
-              child: SignUpForm(),
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          color: Color(0xFFEDEDFF),
+        ),
+        child:  Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children:  [
+            const SizedBox(height: 80,),
+            const Padding(padding: EdgeInsets.all(1),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SignUpScreenTopImage()
+                ],
+              ),
             ),
-            Spacer(),
+            const SizedBox(height: 10,),
+            Expanded(child: Container(
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))
+              ),
+              child: const Padding(
+                padding: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    SizedBox(height: 50,),
+                    SignUpForm()
+                  ],
+                ),
+
+              ),
+            ),
+            )
           ],
         ),
-      ],
+      ),
     );
   }
 }
