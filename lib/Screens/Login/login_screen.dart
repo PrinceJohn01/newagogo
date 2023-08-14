@@ -79,30 +79,28 @@ class MobileLoginScreen extends StatelessWidget {
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children:  [
-            const SizedBox(height: 80,),
+            const SizedBox(height: 110,),
             const Padding(padding: EdgeInsets.all(1),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   LoginScreenTopImage()
                 ],
               ),
             ),
-            const SizedBox(height: 10,),
             Expanded(child: Container(
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(15),
+              child:  const Padding(
+                padding: EdgeInsets.all(15.0),
                 child: Column(
                   children: [
                     SizedBox(height: 50,),
-                    LoginForm()
+                    SingleChildScrollView(child: LoginForm())
                   ],
                 ),
-
               ),
             ),
             )

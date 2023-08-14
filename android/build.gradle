@@ -3,10 +3,12 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build.gradel:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -15,10 +17,15 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter()
     }
 }
 
 rootProject.buildDir = '../build'
+
+dependencies {
+    implementation 'androidx.annotation:annotation:1.6.0'
+}
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }

@@ -54,7 +54,7 @@ class MobileSignupScreen extends StatelessWidget {
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children:  [
-            const SizedBox(height: 80,),
+            const SizedBox(height: 110,),
             const Padding(padding: EdgeInsets.all(1),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,7 +63,6 @@ class MobileSignupScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 10,),
             Expanded(child: Container(
               decoration: const BoxDecoration(
                   color: Colors.white,

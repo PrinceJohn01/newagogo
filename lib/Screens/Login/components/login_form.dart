@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newagogo/Screens/ResetPassword/reset_password.dart';
 import '../../../already_have_an_account_check.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
@@ -27,7 +28,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-        child: Expanded(
+        child: Form(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -119,12 +120,15 @@ class _LoginFormState extends State<LoginForm> {
                 const Spacer(),
                 GestureDetector(
                   onTap: () {
-                    // Handle "Forget Password?" text onPressed callback.
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ResetPasswordScreen()),
+                      );
                   },
                   child: const Text(
                     "Forget Password?",
                     style: TextStyle(
-                      color: Colors.black38,
+                      color: Color(0x007a7acc),
                     ),
                   ),
                 ),

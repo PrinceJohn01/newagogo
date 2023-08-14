@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newagogo/Screens/Login/login_screen.dart';
-import 'package:newagogo/Screens/Login/new_login.dart';
 
 class SplashScreenTwo extends StatelessWidget {
   const SplashScreenTwo({super.key});
