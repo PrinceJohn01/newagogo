@@ -125,7 +125,8 @@ class _SignUpFormState extends State<SignUpForm> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(),
+                  backgroundColor: const Color(0xFF15158C),
+                  foregroundColor: Colors.white
               ),
               child: const Text("Signup"),
             ),
