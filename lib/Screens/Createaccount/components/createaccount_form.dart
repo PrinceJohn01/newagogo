@@ -3,39 +3,30 @@ import '../../../already_have_an_account_check.dart';
 import '../../../constants.dart';
 import '../../Login/login_screen.dart';
 
-class SignUpForm extends StatefulWidget {
-  const SignUpForm({
+class CreateAccountForm extends StatefulWidget {
+  const CreateAccountForm({
     Key? key,
   }) : super(key: key);
 
   @override
-  _SignUpFormState createState() => _SignUpFormState();
+  _CreateAccountFormState createState() => _CreateAccountFormState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
-  bool _obscurePassword = true;
+class _CreateAccountFormState extends State<CreateAccountForm> {
 
-  void _togglePasswordVisibility() {
-    setState(() {
-      _obscurePassword = !_obscurePassword;
-    });
-  }
+  bool _acceptTerms = false;
 
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
-          const Text(
-            'Signup to AgoGo',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
           const SizedBox(
             height: defaultPadding,
           ),
           const Align(
               alignment: Alignment.centerLeft,
-              child: Text("Email",
+              child: Text("First name",
                   style: TextStyle(color: Colors.black, fontSize: 16))),
           Container(
             padding: const EdgeInsets.all(1),
@@ -48,7 +39,7 @@ class _SignUpFormState extends State<SignUpForm> {
               cursorColor: kPrimaryColor,
               onSaved: (email) {},
               decoration: const InputDecoration(
-                hintText: "Email",
+                hintText: "First name",
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                 ),
@@ -58,7 +49,7 @@ class _SignUpFormState extends State<SignUpForm> {
           const SizedBox(height: defaultPadding),
           const Align(
               alignment: Alignment.centerLeft,
-              child: Text('Password',
+              child: Text('Last name',
                   style: TextStyle(color: Colors.black, fontSize: 16))),
           Container(
             padding: const EdgeInsets.all(1),
@@ -67,18 +58,10 @@ class _SignUpFormState extends State<SignUpForm> {
                 borderRadius: BorderRadius.circular(8)),
             child: TextFormField(
               textInputAction: TextInputAction.done,
-              obscureText: _obscurePassword,
               cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
-                labelText: "Password",
-                hintText: "Password",
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                  ),
-                  onPressed: _togglePasswordVisibility,
-                ),
-                prefixIcon: const Padding(
+              decoration: const InputDecoration(
+                hintText: "Last name",
+                prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                 ),
               ),
@@ -87,7 +70,7 @@ class _SignUpFormState extends State<SignUpForm> {
           const SizedBox(height: defaultPadding),
           const Align(
               alignment: Alignment.centerLeft,
-              child: Text('Confirm password',
+              child: Text('Referral code',
                   style: TextStyle(color: Colors.black, fontSize: 16))),
           Container(
             padding: const EdgeInsets.all(1),
@@ -96,48 +79,48 @@ class _SignUpFormState extends State<SignUpForm> {
                 borderRadius: BorderRadius.circular(8)),
             child: TextFormField(
               textInputAction: TextInputAction.done,
-              obscureText: _obscurePassword,
               cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
-                hintText: "Password",
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                  ),
-                  onPressed: _togglePasswordVisibility,
-                ),
-                prefixIcon: const Padding(
+              decoration: const InputDecoration(
+                hintText: "Referral code",
+                prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                 ),
               ),
             ),
           ),
           const SizedBox(height: defaultPadding / 3),
+          CheckboxListTile(
+            title: const Text(
+              "I have read, understood and hereby accept the above stated Terms, Conditions and Privacy Statements",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+            value: _acceptTerms,
+            onChanged: (newValue) {
+              setState(() {
+                _acceptTerms = newValue!;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
+            activeColor: Colors.blue, // Customize the active color of the checkbox
+          ),
+          const SizedBox(height: defaultPadding),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(defaultPadding),
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(),
+                  backgroundColor: const Color(0xFF15158C),
+                  foregroundColor: Colors.white
               ),
-              child: const Text("Signup"),
+              child: const Text("Create an account"),
             ),
           ),
           const SizedBox(height: defaultPadding),
-          AlreadyHaveAnAccountCheck(
-            login: false,
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const MobileLoginScreen();
-                  },
-                ),
-              );
-            },
-          ),
+
         ],
       ),
     );

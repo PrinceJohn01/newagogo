@@ -99,9 +99,8 @@ class _LoginFormState extends State<LoginForm> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF15158C),
-                  foregroundColor: Colors.white
-              ),
+                  backgroundColor: const Color(0xFF15158C),
+                  foregroundColor: Colors.white),
               child: const Text(
                 "Login",
               ),
@@ -122,12 +121,15 @@ class _LoginFormState extends State<LoginForm> {
               const Spacer(),
               GestureDetector(
                 onTap: () {
-                  // Handle "Forget Password?" text onPressed callback.
+                  Navigator.pop(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ResetPasswordScreen()));
                 },
                 child: const Text(
                   "Forget Password?",
                   style: TextStyle(
-                    color: Color(0x007a7acc),
+                    color: Color(0xFF7A7ACC),
                   ),
                 ),
               ),

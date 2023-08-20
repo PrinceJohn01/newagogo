@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SignUpScreenTopImage extends StatelessWidget {
-  const SignUpScreenTopImage({
+class CreateAccountScreenTopImage extends StatelessWidget {
+  const CreateAccountScreenTopImage({
     Key? key,
   }) : super(key: key);
 
