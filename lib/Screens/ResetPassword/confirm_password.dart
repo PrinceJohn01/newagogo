@@ -14,7 +14,10 @@ class ConfirmEmailScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context,MaterialPageRoute(builder: (context) => const ResetPasswordScreen()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ResetPasswordScreen()));
           },
         ),
       ),
@@ -23,11 +26,13 @@ class ConfirmEmailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Confirm Email',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            const Center(
+              child: Text(
+                'Confirm Email',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -36,29 +41,31 @@ class ConfirmEmailScreen extends StatelessWidget {
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                for (int i = 0; i < 4; i++)
-                  Container(
-                    width: 50,
-                    height: 50,
-                    margin: const EdgeInsets.symmetric(horizontal: 8),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const TextField(
-                      keyboardType: TextInputType.number,
-                      maxLength: 1,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        counterText: '',
-                        border: InputBorder.none,
+            Center(
+              child: Row(
+                children: [
+                  for (int i = 0; i < 4; i++)
+                    Container(
+                      width: 50,
+                      height: 50,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const TextField(
+                        keyboardType: TextInputType.number,
+                        maxLength: 1,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          counterText: '',
+                          border: InputBorder.none,
+                        ),
                       ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
             const SizedBox(height: 16),
             Row(
@@ -79,11 +86,14 @@ class ConfirmEmailScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: () {
-                // Implement submit pin logic here
-              },
-              child: const Text("Submit Pin"),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(defaultPadding),
+              child: ElevatedButton(
+                onPressed: () {
+                },
+                child: const Text("Submit Pin"),
+              ),
             ),
           ],
         ),

@@ -121,7 +121,7 @@ class _LoginFormState extends State<LoginForm> {
               const Spacer(),
               GestureDetector(
                 onTap: () {
-                  Navigator.pop(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const ResetPasswordScreen()));

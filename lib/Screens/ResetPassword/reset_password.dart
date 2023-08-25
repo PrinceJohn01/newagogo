@@ -3,34 +3,41 @@ import 'package:newagogo/Screens/Login/login_screen.dart';
 import 'package:newagogo/constants.dart';
 import 'confirm_password.dart';
 
-
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( appBar: AppBar(
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const MobileLoginScreen()));
+        },
+      ),
+    ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context, MaterialPageRoute(builder: (context) => const MobileLoginScreen()));
-              },
-            ),
-            const Text(
-              "Reset Password",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            const Center(
+              child: Text(
+                "Reset Password",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              "Please enter your email. A verification pin will be sent to you to confirm your email.",
+            const Center(
+              child: Text(
+                "Please enter your email. A verification pin will be sent to you to confirm your email.",
+              ),
             ),
             const SizedBox(height: 16),
             TextFormField(
@@ -38,20 +45,29 @@ class ResetPasswordScreen extends StatelessWidget {
                 hintText: "Email",
               ),
             ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                // Implement reset password logic here
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ConfirmEmailScreen(email: '',)),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: kPrimaryColor,
-                padding: const EdgeInsets.symmetric(horizontal: 32),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(defaultPadding),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ConfirmEmailScreen(
+                                email: '',
+                              )),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF15158C),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                  ),
+                  child: const Text("Reset Password"),
+                ),
               ),
-              child: const Text("Reset Password"),
             ),
           ],
         ),
