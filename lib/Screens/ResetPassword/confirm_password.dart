@@ -92,6 +92,11 @@ class ConfirmEmailScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF15158C),
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                ),
                 child: const Text("Submit Pin"),
               ),
             ),
