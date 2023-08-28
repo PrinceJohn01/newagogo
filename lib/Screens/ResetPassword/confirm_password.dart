@@ -1,11 +1,60 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:newagogo/Screens/ResetPassword/reset_password.dart';
 import 'package:newagogo/constants.dart';
 
-class ConfirmEmailScreen extends StatelessWidget {
+class ConfirmEmailScreen extends StatefulWidget {
   final String email;
 
   const ConfirmEmailScreen({super.key, required this.email});
+
+  @override
+  _ConfirmEmailScreenState createState() => _ConfirmEmailScreenState();
+}
+
+class _ConfirmEmailScreenState extends State<ConfirmEmailScreen> {
+  late List<TextEditingController> _controllers;
+  late List<FocusNode> _focusNodes;
+  late Duration _countdownDuration;
+  late Timer _countdownTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _controllers = List.generate(4, (_) => TextEditingController());
+    _focusNodes = List.generate(4, (_) => FocusNode());
+
+    _countdownDuration = const Duration(minutes: 10);
+    _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_countdownDuration.inSeconds > 0) {
+          _countdownDuration = _countdownDuration - const Duration(seconds: 1);
+        } else {
+          _countdownTimer.cancel();
+        }
+      });
+    });
+
+    for (int i = 0; i < 3; i++) {
+      _controllers[i].addListener(() {
+        if (_controllers[i].text.length == 1) {
+          _focusNodes[i].unfocus();
+          _focusNodes[i + 1].requestFocus();
+        }
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    for (int i = 0; i < 4; i++) {
+      _controllers[i].dispose();
+      _focusNodes[i].dispose();
+    }
+    _countdownTimer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +73,7 @@ class ConfirmEmailScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Center(
               child: Text(
@@ -37,37 +86,53 @@ class ConfirmEmailScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Please enter the verification pin sent to the email: $email',
+              'Please enter the verification pin sent to the email: ${widget.email}',
               style: const TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            Center(
-              child: Row(
-                children: [
-                  for (int i = 0; i < 4; i++)
-                    Container(
-                      width: 50,
-                      height: 50,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const TextField(
-                        keyboardType: TextInputType.number,
-                        maxLength: 1,
-                        textAlign: TextAlign.center,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          border: InputBorder.none,
-                        ),
-                      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (int i = 0; i < 4; i++)
+                  Container(
+                    width: 50,
+                    height: 50,
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                ],
-              ),
+                    child: TextField(
+                      controller: _controllers[i],
+                      keyboardType: TextInputType.number,
+                      maxLength: 1,
+                      textAlign: TextAlign.center,
+                      decoration: const InputDecoration(
+                        counterText: '',
+                        border: InputBorder.none,
+                      ),
+                      focusNode: _focusNodes[i],
+                    ),
+                  ),
+              ],
             ),
             const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Expires in:"),
+                const SizedBox(width: 4),
+                Text(
+                  '${_countdownDuration.inMinutes.toString().padLeft(2, '0')}:${(_countdownDuration.inSeconds % 60).toString().padLeft(2, '0')}',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                  ),
+                ),
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -91,6 +156,7 @@ class ConfirmEmailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(defaultPadding),
               child: ElevatedButton(
                 onPressed: () {
+                  // Implement your submission logic here
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF15158C),
