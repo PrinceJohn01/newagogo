@@ -11,7 +11,6 @@ class ResetPasswordForm extends StatefulWidget {
 }
   class _ResetPasswordFormState extends State<ResetPasswordForm> {
   bool _obscurePassword = true;
-  bool _rememberMe = false;
 
   void _togglePasswordVisibility() {
   setState(() {
@@ -89,8 +88,9 @@ class ResetPasswordForm extends StatefulWidget {
             const Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Confirm Password",
-                    style: TextStyle(color: Colors.black, fontSize: 16,fontWeight: FontWeight.bold))),
-
+                    style: TextStyle(color: Colors.black, fontSize: 16,fontWeight: FontWeight.bold),
+                ),
+            ),
             Container(
               padding: const EdgeInsets.all(1),
               decoration: BoxDecoration(
@@ -115,7 +115,6 @@ class ResetPasswordForm extends StatefulWidget {
                     padding: EdgeInsets.all(defaultPadding),
                   ),
                 ),
-
               ),
             ),
             const SizedBox(height: 32),
@@ -124,7 +123,7 @@ class ResetPasswordForm extends StatefulWidget {
               padding: const EdgeInsets.all(defaultPadding),
               child: ElevatedButton(
                 onPressed: () {
-                  // Implement change password logic here
+                  _showChangePasswordDialog(context);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF15158C),
@@ -139,4 +138,27 @@ class ResetPasswordForm extends StatefulWidget {
       ),
     );
   }
+}
+
+void _showChangePasswordDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return Container(
+        alignment: Alignment.bottomCenter,
+        child: AlertDialog(
+          title: const Text("Password Changed"),
+          content: const Text("Your have successfully changed your password."),
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
