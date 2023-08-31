@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:newagogo/Screens/ResetPassword/reset_password.dart';
+import 'package:newagogo/Screens/ResetPassword/confirm_email.dart';
+import 'package:newagogo/Screens/ResetPassword/resetpassword.dart';
 import 'package:newagogo/constants.dart';
 
 class ConfirmEmailScreen extends StatefulWidget {
@@ -156,7 +157,12 @@ class _ConfirmEmailScreenState extends State<ConfirmEmailScreen> {
               padding: const EdgeInsets.all(defaultPadding),
               child: ElevatedButton(
                 onPressed: () {
-                  // Implement your submission logic here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ResetPasswordForm(), // Replace with the actual ResetPasswordScreen constructor if needed
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF15158C),

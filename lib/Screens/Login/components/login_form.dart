@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newagogo/Screens/ResetPassword/reset_password.dart';
+import 'package:newagogo/Screens/ResetPassword/confirm_email.dart';
 import '../../../already_have_an_account_check.dart';
 import '../../../constants.dart';
 import '../../Signup/signup_screen.dart';
