@@ -94,7 +94,7 @@ class ResetPasswordForm extends StatefulWidget {
             Container(
               padding: const EdgeInsets.all(1),
               decoration: BoxDecoration(
-                  color: Color(0xFFF9F9F9),
+                  color: const Color(0xFFF9F9F9),
                   borderRadius: BorderRadius.circular(9)),
               child: TextFormField(textDirection: TextDirection.ltr,
                 textInputAction: TextInputAction.done,
@@ -102,7 +102,7 @@ class ResetPasswordForm extends StatefulWidget {
                 cursorColor: kPrimaryColor,
                 decoration: InputDecoration(
                   hintText: "Password",
-                  fillColor: Color(0xFFF9F9F9),
+                  fillColor: const Color(0xFFF9F9F9),
                   alignLabelWithHint: true,
                   border: InputBorder.none,
                   suffixIcon: IconButton(
