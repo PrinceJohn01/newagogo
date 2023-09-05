@@ -51,6 +51,9 @@ class _SignUpFormState extends State<SignUpForm> {
               onSaved: (email) {},
               decoration: const InputDecoration(
                 hintText: "Email",
+                border: InputBorder.none,
+                fillColor: Colors.grey,
+                alignLabelWithHint: true,
                 prefixIcon: Padding(
                   padding: EdgeInsets.all(defaultPadding),
                 ),
@@ -76,6 +79,9 @@ class _SignUpFormState extends State<SignUpForm> {
                 decoration: InputDecoration(
                   labelText: "Password",
                   hintText: "Password",
+                  border: InputBorder.none,
+                  fillColor: Colors.grey,
+                  alignLabelWithHint: true,
                   suffixIcon: IconButton(
                     icon: Icon(
                       _obscurePassword ? Icons.visibility : Icons.visibility_off,
