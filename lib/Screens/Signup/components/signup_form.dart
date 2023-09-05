@@ -34,11 +34,9 @@ class _SignUpFormState extends State<SignUpForm> {
             height: defaultPadding,
           ),
           const Align(
-            alignment: Alignment.centerLeft,
-            child:
-            Text("Email",style: TextStyle(
-                color: Colors.black,
-                fontSize: 16))),
+              alignment: Alignment.centerLeft,
+              child: Text("Email",
+                  style: TextStyle(color: Colors.black, fontSize: 16))),
           Container(
             padding: const EdgeInsets.all(1),
             decoration: BoxDecoration(
@@ -60,73 +58,69 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
-      const SizedBox(height: defaultPadding),
-      const Align(
-        alignment: Alignment.centerLeft,
-        child:
-        Text('Password', style: TextStyle(
-            color: Colors.black,
-            fontSize: 16))),
-              Container(
-                padding: const EdgeInsets.all(1),
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(8)),
-                child: TextFormField(
-                textInputAction: TextInputAction.done,
-                obscureText: _obscurePassword,
-                cursorColor: kPrimaryColor,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  hintText: "Password",
-                  border: InputBorder.none,
-                  fillColor: Colors.grey,
-                  alignLabelWithHint: true,
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                    ),
-                    onPressed: _togglePasswordVisibility,
+          const SizedBox(height: defaultPadding),
+          const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Password',
+                  style: TextStyle(color: Colors.black, fontSize: 16))),
+          Container(
+            padding: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                borderRadius: BorderRadius.circular(8)),
+            child: TextFormField(
+              textInputAction: TextInputAction.done,
+              obscureText: _obscurePassword,
+              cursorColor: kPrimaryColor,
+              decoration: InputDecoration(
+                labelText: "Password",
+                hintText: "Password",
+                border: InputBorder.none,
+                fillColor: Colors.grey,
+                alignLabelWithHint: true,
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
                   ),
-                  prefixIcon: const Padding(
-                    padding: EdgeInsets.all(defaultPadding),
-                  ),
+                  onPressed: _togglePasswordVisibility,
                 ),
-          ),
-              ),
-      const SizedBox(height: defaultPadding),
-      const Align(
-        alignment: Alignment.centerLeft,
-        child:
-        Text('Confirm password', style: TextStyle(
-            color: Colors.black,
-            fontSize: 16))),
-            Container(
-              padding: const EdgeInsets.all(1),
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(8)),
-              child: TextFormField(
-                textInputAction: TextInputAction.done,
-                obscureText: _obscurePassword,
-                cursorColor: kPrimaryColor,
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  border: InputBorder.none,
-                  fillColor: Colors.grey,
-                  alignLabelWithHint: true,
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                    ),
-                    onPressed: _togglePasswordVisibility,
-                  ),
-                  prefixIcon: const Padding(
-                    padding: EdgeInsets.all(defaultPadding),
-                  ),
+                prefixIcon: const Padding(
+                  padding: EdgeInsets.all(defaultPadding),
                 ),
               ),
             ),
+          ),
+          const SizedBox(height: defaultPadding),
+          const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Confirm password',
+                  style: TextStyle(color: Colors.black, fontSize: 16))),
+          Container(
+            padding: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                borderRadius: BorderRadius.circular(8)),
+            child: TextFormField(
+              textInputAction: TextInputAction.done,
+              obscureText: _obscurePassword,
+              cursorColor: kPrimaryColor,
+              decoration: InputDecoration(
+                hintText: "Password",
+                border: InputBorder.none,
+                fillColor: Colors.grey,
+                alignLabelWithHint: true,
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  onPressed: _togglePasswordVisibility,
+                ),
+                prefixIcon: const Padding(
+                  padding: EdgeInsets.all(defaultPadding),
+                ),
+              ),
+            ),
+          ),
           const SizedBox(height: defaultPadding / 3),
           Container(
             width: 335.0,
@@ -137,8 +131,7 @@ class _SignUpFormState extends State<SignUpForm> {
               style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(6.0),
                   backgroundColor: const Color(0xFF15158C),
-                foregroundColor: Colors.white
-              ),
+                  foregroundColor: Colors.white),
               child: const Text("Signup"),
             ),
           ),
