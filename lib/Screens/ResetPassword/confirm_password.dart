@@ -153,8 +153,11 @@ class _ConfirmEmailScreenState extends State<ConfirmEmailScreen> {
             ),
             const SizedBox(height: 32),
             Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(defaultPadding),
+              width: 335.0,
+              height: 56.0,
+              margin: const EdgeInsets.only(top: 449.0, left: 20.0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10)),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -167,7 +170,7 @@ class _ConfirmEmailScreenState extends State<ConfirmEmailScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF15158C),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  padding: const EdgeInsets.all(6.0),
                 ),
                 child: const Text("Submit Pin"),
               ),

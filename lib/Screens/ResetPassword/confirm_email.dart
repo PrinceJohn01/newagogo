@@ -45,28 +45,29 @@ class ResetPasswordScreen extends StatelessWidget {
                 hintText: "Email",
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(defaultPadding),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ConfirmEmailScreen(
-                                email: '',
-                              )),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF15158C),
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
-                  ),
-                  child: const Text("Reset Password"),
+            Container(
+              width: 335.0,
+              height: 56.0,
+              margin: const EdgeInsets.only(top: 449.0, left: 20.0),
+              decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(10)),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ConfirmEmailScreen(
+                              email: '',
+                            )),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF15158C),
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.all(6.0),
                 ),
+                child: const Text("Reset Password"),
               ),
             ),
           ],
