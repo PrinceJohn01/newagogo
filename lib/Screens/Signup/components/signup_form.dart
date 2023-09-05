@@ -112,6 +112,9 @@ class _SignUpFormState extends State<SignUpForm> {
                 cursorColor: kPrimaryColor,
                 decoration: InputDecoration(
                   hintText: "Password",
+                  border: InputBorder.none,
+                  fillColor: Colors.grey,
+                  alignLabelWithHint: true,
                   suffixIcon: IconButton(
                     icon: Icon(
                       _obscurePassword ? Icons.visibility : Icons.visibility_off,
@@ -126,11 +129,13 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           const SizedBox(height: defaultPadding / 3),
           Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(defaultPadding),
+            width: 335.0,
+            height: 56.0,
+            margin: const EdgeInsets.only(top: 449.0, left: 20.0),
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(6.0),
                   backgroundColor: const Color(0xFF15158C),
                 foregroundColor: Colors.white
               ),
