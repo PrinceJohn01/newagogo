@@ -147,19 +147,31 @@ void _showChangePasswordDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return Container(
-        alignment: Alignment.bottomCenter,
+      return Align(
+        alignment: Alignment.bottomCenter, // Align the dialog to the bottom center
         child: AlertDialog(
-          title: const Text("Password Changed"),
-          content: const Text("Your have successfully changed your password."),
-          actions: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: const Text("OK"),
-            ),
-          ],
+          contentPadding: const EdgeInsets.all(16.0),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.end, // Align content to the right
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: const Icon(Icons.close),
+              ),
+              const SizedBox(height: 8),
+              const Center(child: Text("Password Changed", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black))),
+              const SizedBox(height: 8),
+              const Center(child: Text("You have successfully changed your password.", style: TextStyle(color: Colors.black),)),
+              const SizedBox(height: 16),
+             ],
+          ),
+          contentTextStyle: const TextStyle(fontSize: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
         ),
       );
     },
