@@ -107,12 +107,13 @@ class _CreateAccountFormState extends State<CreateAccountForm> {
             activeColor: Colors.blue, // Customize the active color of the checkbox
           ),
           const SizedBox(height: defaultPadding),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(defaultPadding),
+          Container( width: 335.0,
+            height: 56.0,
+            margin: const EdgeInsets.only(top: 449.0, left: 20.0),
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(6.0),
                   backgroundColor: const Color(0xFF15158C),
                   foregroundColor: Colors.white
               ),
