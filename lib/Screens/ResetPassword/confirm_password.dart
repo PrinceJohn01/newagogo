@@ -71,111 +71,113 @@ class _ConfirmEmailScreenState extends State<ConfirmEmailScreen> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Center(
-              child: Text(
-                'Confirm Email',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Please enter the verification pin sent to the email: ${widget.email}',
-              style: const TextStyle(fontSize: 16),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                for (int i = 0; i < 4; i++)
-                  Container(
-                    width: 50,
-                    height: 50,
-                    margin: const EdgeInsets.symmetric(horizontal: 8),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: TextField(
-                      controller: _controllers[i],
-                      keyboardType: TextInputType.number,
-                      maxLength: 1,
-                      textAlign: TextAlign.center,
-                      decoration: const InputDecoration(
-                        counterText: '',
-                        border: InputBorder.none,
-                      ),
-                      focusNode: _focusNodes[i],
-                    ),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Expires in:"),
-                const SizedBox(width: 4),
-                Text(
-                  '${_countdownDuration.inMinutes.toString().padLeft(2, '0')}:${(_countdownDuration.inSeconds % 60).toString().padLeft(2, '0')}',
-                  style: const TextStyle(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Center(
+                child: Text(
+                  'Confirm Email',
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.red,
+                    fontSize: 24,
                   ),
                 ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Didn't get the link?"),
-                TextButton(
-                  onPressed: () {
-                    // Implement resend logic here
-                  },
-                  child: const Text(
-                    "Resend",
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 32),
-            Container(
-              width: 335.0,
-              height: 56.0,
-              margin: const EdgeInsets.only(top: 449.0, left: 20.0),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10)),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ResetPasswordForm(), // Replace with the actual ResetPasswordScreen constructor if needed
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF15158C),
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.all(6.0),
-                ),
-                child: const Text("Submit Pin"),
               ),
-            ),
-          ],
+              const SizedBox(height: 16),
+              Text(
+                'Please enter the verification pin sent to the email: ${widget.email}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (int i = 0; i < 4; i++)
+                    Container(
+                      width: 50,
+                      height: 50,
+                      margin: const EdgeInsets.symmetric(horizontal: 8),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: TextField(
+                        controller: _controllers[i],
+                        keyboardType: TextInputType.number,
+                        maxLength: 1,
+                        textAlign: TextAlign.center,
+                        decoration: const InputDecoration(
+                          counterText: '',
+                          border: InputBorder.none,
+                        ),
+                        focusNode: _focusNodes[i],
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Expires in:"),
+                  const SizedBox(width: 4),
+                  Text(
+                    '${_countdownDuration.inMinutes.toString().padLeft(2, '0')}:${(_countdownDuration.inSeconds % 60).toString().padLeft(2, '0')}',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Didn't get the link?"),
+                  TextButton(
+                    onPressed: () {
+                      // Implement resend logic here
+                    },
+                    child: const Text(
+                      "Resend",
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 32),
+              Container(
+                width: 335.0,
+                height: 56.0,
+                margin: const EdgeInsets.only(top: 449.0, left: 20.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10)),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ResetPasswordForm(), // Replace with the actual ResetPasswordScreen constructor if needed
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF15158C),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.all(6.0),
+                  ),
+                  child: const Text("Submit Pin"),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

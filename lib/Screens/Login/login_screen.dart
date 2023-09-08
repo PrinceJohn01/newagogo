@@ -70,41 +70,44 @@ class MobileLoginScreen extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color(0xFFEDEDFF),
-        ),
-        child:  Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:  [
-            const SizedBox(height: 110,),
-            const Padding(padding: EdgeInsets.all(1),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  LoginScreenTopImage()
-                ],
-              ),
-            ),
-            Expanded(child: Container(
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))
-              ),
-              child:  const Padding(
-                padding: EdgeInsets.all(15.0),
+    return Expanded(
+      flex: 1,
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: Color(0xFFEDEDFF),
+          ),
+          child:  Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:  [
+              const SizedBox(height: 110,),
+              const Padding(padding: EdgeInsets.all(1),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    SizedBox(height: 50,),
-                    SingleChildScrollView(child: LoginForm())
+                    LoginScreenTopImage()
                   ],
                 ),
               ),
-            ),
-            )
-          ],
+              Expanded(child: Container(
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40))
+                ),
+                child:  const Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 50,),
+                      Expanded(child: SingleChildScrollView(child: LoginForm()))
+                    ],
+                  ),
+                ),
+              ),
+              )
+            ],
+          ),
         ),
       ),
     );
