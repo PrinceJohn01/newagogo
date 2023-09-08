@@ -119,8 +119,11 @@ class ResetPasswordForm extends StatefulWidget {
             ),
             const SizedBox(height: 32),
             Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(defaultPadding),
+              width: 335.0,
+              height: 56.0,
+              margin: const EdgeInsets.only(top: 449.0, left: 20.0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10)),
               child: ElevatedButton(
                 onPressed: () {
                   _showChangePasswordDialog(context);
@@ -128,7 +131,7 @@ class ResetPasswordForm extends StatefulWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF15158C),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  padding: const EdgeInsets.all(6.0),
                 ),
                 child: const Text("Change Password"),
               ),
